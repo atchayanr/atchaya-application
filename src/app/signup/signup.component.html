@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+<body>
+<form #signupForm = "ngForm"  (ngSubmit)="onSubmit()">
+    <div>
+
+    <input type="First Name" required #fname = "ngModel"  [(ngModel)]="signinModel.firstname" 
+        id="fname" name="fname" placeholder="First Name">
+    <input type="Last name" required #lname= "ngModel" [(ngModel)]="signinModel.lastname" name="lname"
+       id="lname" placeholder=" Last Name">
+    <input type="datepicker"  [matDatepicker]="picker1"  id="dob" name="dob" placeholder=" Date of Birth"
+       #dob= "ngModel" required [(ngModel)]="signinModel.dob">
+     <mat-datepicker-toggle class="ab1" matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker  #picker1></mat-datepicker>
+    <input type="email" id="email" placeholder="Email" #email = "ngModel" required [(ngModel)]="signinModel.email" 
+        name="email">
+    <input type="password" id="pass" placeholder="Password" #pass= "ngModel" [(ngModel)]="signinModel.password"
+        placeholder="Password" name="pass">
+    <input type="password" [type]="showPassword ? 'text' : 'password'"  placeholder="Re-enter Password" 
+        #repass= "ngModel" required [(ngModel)]="signinModel.repass" id="repass" name="repass"
+         placeholder="Re-enter Password" >
+    <mat-icon class="ab" matSuffix (click)="togglePasswordVisibility()">
+        {{showPassword?'visibility_off':'visibility'}}
+    </mat-icon>
+       <div class="terms"><input type="checkbox">
+       <span>Accept the <a href="#" style="color: #5C87F3;">Terms</a> and <a href="#" style="color: #5C87F3;">
+        Conditions</a></span></div>   
+       
+       <a href="/landing" > <button mat-flat-button class="btn">Sign Up</button></a>
+
+    </div>
+</form>
+
+   
+</body>
+</html>

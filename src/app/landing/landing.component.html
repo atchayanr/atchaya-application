@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+</head>
+<body>
+
+<div class="imgbox" *ngIf="isActiveSignin"><img src="/assets/signin.png"></div>
+<div class="imgbox" *ngIf="isActiveSignup"><img src="/assets/signup.png"></div>
+<div class="line"><img src="/assets/gradient.png"></div>
+<div class="formcontainer"><img src="/assets/Logo.png">
+  <div class="login-page" [style.padding-bottom]="padd">
+    <mat-button-toggle-group matButtonToggleGroup class="togglebtn" appearance="legacy">
+        <mat-button-toggle value="SIGN IN" class="togglebtn1" checked disableRipple (change)="onValChange('SIGN IN' )" >
+                <p class="sitxt">SIGN IN</p>
+        </mat-button-toggle>
+
+        <mat-button-toggle value="SIGN UP" class="togglebtn2" disableRipple (change)="onValChange('SIGN UP')" >
+                <p class="sitxt">SIGN UP</p>
+        </mat-button-toggle>
+
+    </mat-button-toggle-group> 
+          <app-signin *ngIf="isActiveSignin"></app-signin>
+
+          <app-signup *ngIf="isActiveSignup" ></app-signup>
+
+   <p class="footer" [style.margin-top]="footer">Goto <a class="link" href="https/www.kaartech.com/" 
+    target="_blank">Kaar Technologies</a><span class="material-icons"> &nbsp;
+   <a href=""><span><i class='bx bx-link-external' style='color:#699BF7;' ></i></span></a>  
+
+    </span><span class="help">Help</span><span class="privacy">Privacy</span><span>Terms</span></p>
+  </div>
+</div>
+
+</body>
+</html>

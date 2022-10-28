@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGN IN</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+
+<body>
+    <form [formGroup]="signupForm" (ngSubmit)="reactiveform()">
+    <div>
+       
+        <input type="email" formControlName="email" required class="input" aria-describedby="emailHelp"
+        placeholder="Email"><br>
+         <mat-hint  style="color: #f44336; padding-left: 50px;"
+        *ngIf="formSubmitted && signupForm.controls['email'].errors?.['required']"><b>Email is required*</b><br>
+      </mat-hint>
+      <mat-hint style="color: #f44336;padding-left: 20px;" 
+      *ngIf="formSubmitted && signupForm.controls['email'].errors?.['email']">
+          Please Enter <b>Valid Email-Id*</b>
+        </mat-hint><br>
+        
+        <input formControlName="password" required type="password" [type]="showPassword ? 'text' : 'password'"  
+        class="input"  placeholder="Password">
+        <mat-icon class="ab" matSuffix (click)="togglePasswordVisibility()">
+            {{showPassword?'visibility_off':'visibility'}}
+        </mat-icon>
+       <div style="margin-top: 20px;"><mat-hint style="color: #f44336;padding-left: 50px;"
+        *ngIf="formSubmitted && signupForm.controls['password'].errors?.['required']"><b>Password is required*</b>
+      </mat-hint>
+    </div><br><br>
+       <a id="forget"href="#">Forget Password?</a>
+       <button mat-flat-button class="btn">Sign In</button>
+    
+    </div>
+   </form>
+</body>
+
+</html>
